@@ -13,19 +13,13 @@ public class UserframeService {
     private UserframeRepository userFramRepository;
 
     //사용자 개인 프레임 조회
-    public List<Userframe> listuserframe(){
-        return userFramRepository.findAll();
+    public List<Userframe> listuserframe(int userNum, String userId){
+        return userFramRepository.findByUserNumAndUserId(userNum, userId);
     }
 
     //사용자 개인 프레임 등록
-    public Userframe createuserframe(UserframeFrom userframefrom){
-        Userframe userframe = new Userframe();
-        userframe.setUser_num(userframefrom.getUser_num());
-        userframe.setUser_id(userframefrom.getUser_id());
-        userframe.setFrame_name(userframefrom.getFrame_name());
-        userframe.setFrame_width(userframefrom.getFrame_width());
-        userframe.setFrame_height(userframefrom.getFrame_height());
-        return userFramRepository.save(userframe);
+    public void createuserframe(UserframeFrom userframefrom){
+
     }
 
     //사용자 개인 프레임 수정

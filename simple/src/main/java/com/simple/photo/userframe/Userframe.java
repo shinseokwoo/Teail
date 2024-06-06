@@ -3,12 +3,12 @@ package com.simple.photo.userframe;
 import jakarta.persistence.*;
 
 /*
-* frame_id (pk)
-* 사용자 넘버 user_num (fk)
-* 사용자 아이디 user_id
-* 가로 픽셀 사이즈 : frame_width
-* 세로 픽셀 사이즈 : frame_height
-* 사용 용도 : frame_name
+* frameId (pk)
+* 사용자 넘버 userNum (fk)
+* 사용자 아이디 userId
+* 가로 픽셀 사이즈 : frameWidth
+* 세로 픽셀 사이즈 : frameHeight
+* 사용 용도 : frameName
 * Entity
 * */
 @Entity
@@ -16,72 +16,80 @@ public class Userframe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long frame_id; //기본키
+    @Column(name = "frame_id")
+    private Long frameId; //기본키
 
-    private int user_num; //외래키
-    private String user_id;
-    private String frame_name; // 예: 증명 사진, 여권 사진, 주민등록 사진, 이력서 사진 등
-    private int frame_width; // 가로 픽셀 값으로 입력을 받아야 한다.
-    private int frame_height;// 세로 픽셀 값으로 입력을 받아야 한다.
+    @Column(name = "user_num")
+    private int userNum; //외래키
+    @Column(name = "user_id")
+    private String userId;
+    @Column(name = "frame_name")
+    private String frameName; // 예: 증명 사진, 여권 사진, 주민등록 사진, 이력서 사진 등
+    @Column(name = "frame_width")
+    private int frameWidth; // 가로 픽셀 값으로 입력을 받아야 한다.
+    @Column(name = "frame_height")
+    private int frameHeight;// 세로 픽셀 값으로 입력을 받아야 한다.
 
     // 기본 생성자
     public Userframe() {}
 
     // 매개변수가 있는 생성자
-    public Userframe(int user_num, String user_id, String frame_name, int frame_width, int frame_height) {
-        this.user_num = user_num;
-        this.user_id = user_id;
-        this.frame_name = frame_name;
-        this.frame_width = frame_width;
-        this.frame_height = frame_height;
+    public Userframe(Long frameId, int userNum, String userId, String frameName, int frameWidth, int frameHeight) {
+        this.frameId = frameId;
+        this.userNum = userNum;
+        this.userId = userId;
+        this.frameName = frameName;
+        this.frameWidth = frameWidth;
+        this.frameHeight = frameHeight;
     }
 
     // Getter 및 Setter
-    public Long getFrame_id() {
-        return frame_id;
+    public Long getFrameId() {
+        return frameId;
     }
 
-    public void setFrame_id(Long frame_id) {
-        this.frame_id = frame_id;
+    public void setFrameId(Long frameId) {
+        this.frameId = frameId;
     }
 
-    public int getUser_num() {
-        return user_num;
+    public int getUserNum() {
+        return userNum;
     }
 
-    public void setUser_num(int user_num) {
-        this.user_num = user_num;
+    public void setUserNum(int userNum) {
+        this.userNum = userNum;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getFrame_name() {
-        return frame_name;
+    public String getFrameName() {
+        return frameName;
     }
 
-    public void setFrame_name(String frame_name) {
-        this.frame_name = frame_name;
+    public void setFrameName(String frameName) {
+        this.frameName = frameName;
     }
 
-    public int getFrame_width() {
-        return frame_width;
+    public int getFrameWidth() {
+        return frameWidth;
     }
 
-    public void setFrame_width(int frame_width) {
-        this.frame_width = frame_width;
+    public void setFrameWidth(int frameWidth) {
+        this.frameWidth = frameWidth;
     }
 
-    public int getFrame_height() {
-        return frame_height;
+    public int getFrameHeight() {
+        return frameHeight;
     }
 
-    public void setFrame_height(int frame_height) {
-        this.frame_height = frame_height;
+    public void setFrameHeight(int frameHeight) {
+        this.frameHeight = frameHeight;
     }
+
 }

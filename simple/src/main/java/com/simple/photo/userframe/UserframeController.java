@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /*클라이언트 요청을 받고 클라이언트에게 결과를 반환 (Presentation Layer)*/
-@Controller
+@RestController
 @RequestMapping("/userframe")
 //@CrossOrigin(origins = "http://localhost:3000") 리액트 포트 번호랑 맞춰야 한다.???
 public class UserframeController {
@@ -16,13 +16,20 @@ public class UserframeController {
     @Autowired
     private UserframeService userframeService;
 
-    //사용자 개인 프레임 확인(조회 : user_num, user_id)
-    @GetMapping
-    public String listuserframe(Model model){
-        List<Userframe> listuserframe = userframeService.listuserframe();
-        model.addAttribute("listuserframe", listuserframe);
-        return "listuserframe";
+    //사용자 개인 프레임 확인(조회 : user_num, user_id) 포스트맨 http://localhost:8000/userframe/1/사용자1
+    @GetMapping("/{userNum}/{userId}")
+    public List<Userframe> listuserframe(@PathVariable("userNum") int userNum, @PathVariable("userId") String userId) {
+        List<Userframe> listuserframe = userframeService.listuserframe(userNum, userId);
+        return listuserframe;
     }
+
+    //사용자 개인 프레임 확인(조회 : user_num, user_id) 포스트맨 key value
+//    @GetMapping("/listuserframe")
+//    public List<Userframe> listuserframe(@RequestParam("userNum") int userNum, @RequestParam("userId") String userId) {
+//        List<Userframe> listuserframe = userframeService.listuserframe(userNum, userId);
+//        return listuserframe;
+//    }
+
 
     //사용자 개인 프레임 등록 (user_num, user_id)
     @PostMapping()

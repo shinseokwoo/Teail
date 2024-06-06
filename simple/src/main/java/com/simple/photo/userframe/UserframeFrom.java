@@ -15,63 +15,63 @@ import lombok.Data;
  *  */
 public class UserframeFrom {
 
-    private int user_num;
-    private String user_id;
-    private String frame_name;
-    private int frame_width;
-    private int frame_height;
+    private int userNum;
+    private String userId;
+    private String frameName;
+    private int frameWidth;
+    private int frameHeight;
 
     // 기본 생성자
     public UserframeFrom() {}
 
     // 매개변수가 있는 생성자
-    public UserframeFrom(int user_num, String user_id, String frame_name, int frame_width, int frame_height) {
-        this.user_num = user_num;
-        this.user_id = user_id;
-        this.frame_name = frame_name;
-        this.frame_width = frame_width;
-        this.frame_height = frame_height;
+    public UserframeFrom(int userNum, String userId, String frameName, int frameWidth, int frameHeight) {
+        this.userNum = userNum;
+        this.userId = userId;
+        this.frameName = frameName;
+        this.frameWidth = frameWidth;
+        this.frameHeight = frameHeight;
     }
 
     // Getter 및 Setter
-    public int getUser_num() {
-        return user_num;
+    public int getUserNum() {
+        return userNum;
     }
 
-    public void setUser_num(int user_num) {
-        this.user_num = user_num;
+    public void setUserNum(int userNum) {
+        this.userNum = userNum;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getFrame_name() {
-        return frame_name;
+    public String getFrameName() {
+        return frameName;
     }
 
-    public void setFrame_name(String frame_name) {
-        this.frame_name = frame_name;
+    public void setFrameName(String frameName) {
+        this.frameName = frameName;
     }
 
-    public int getFrame_width() {
-        return frame_width;
+    public int getFrameWidth() {
+        return frameWidth;
     }
 
-    public void setFrame_width(int frame_width) {
-        this.frame_width = frame_width;
+    public void setFrameWidth(int frameWidth) {
+        this.frameWidth = frameWidth;
     }
 
-    public int getFrame_height() {
-        return frame_height;
+    public int getFrameHeight() {
+        return frameHeight;
     }
 
-    public void setFrame_height(int frame_height) {
-        this.frame_height = frame_height;
+    public void setFrameHeight(int frameHeight) {
+        this.frameHeight = frameHeight;
     }
 }
 
