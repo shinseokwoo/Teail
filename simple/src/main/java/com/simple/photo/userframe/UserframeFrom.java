@@ -1,10 +1,6 @@
 package com.simple.photo.userframe;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.validation.constraints.NotEmpty;
 
 /*
  *개인 프레임 크기
@@ -17,8 +13,12 @@ public class UserframeFrom {
 
     private int userNum;
     private String userId;
+
+    @NotEmpty(message = "필수로 입력해주세요.")
     private String frameName;
+    @NotEmpty(message = "필수로 입력해주세요.")
     private int frameWidth;
+    @NotEmpty(message = "필수로 입력해주세요.")
     private int frameHeight;
 
     // 기본 생성자

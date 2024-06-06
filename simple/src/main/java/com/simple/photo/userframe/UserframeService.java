@@ -18,8 +18,15 @@ public class UserframeService {
     }
 
     //사용자 개인 프레임 등록
-    public void createuserframe(UserframeFrom userframefrom){
-
+    public String createuserframe(UserframeFrom userframefrom){
+        Userframe userframe = new Userframe();
+        userframe.setUserNum(userframefrom.getUserNum());
+        userframe.setUserId(userframefrom.getUserId());
+        userframe.setFrameName(userframefrom.getFrameName());
+        userframe.setFrameWidth(userframefrom.getFrameWidth());
+        userframe.setFrameHeight(userframefrom.getFrameHeight());
+        Userframe result = userFramRepository.save(userframe);
+        return "result";
     }
 
     //사용자 개인 프레임 수정
@@ -28,8 +35,18 @@ public class UserframeService {
     }
 
     //사용자 개인 프레임 삭제
-    public void deleteuserframe(){
+//    public void deleteuserframe(UserframeFrom userframefrom){
+//        Userframe userframe = new Userframe();
+//        userframe.setUserNum(userframefrom.getUserNum());
+//        userframe.setUserId(userframefrom.getUserId());
+//        userframe.setFrameName(userframefrom.getFrameName());
+//        userframe.setFrameWidth(userframefrom.getFrameWidth());
+//        userframe.setFrameHeight(userframefrom.getFrameHeight());
+//        userFramRepository.delete(userframe);
+//    }
 
+    public void deleteuserframe(int userNum, String userId, String frameName) {
+        userFramRepository.deleteByUserNumAndUserIdAndFrameName(userNum, userId, frameName);
     }
 
 //    public List<Userframe> getAllUserFrams() {

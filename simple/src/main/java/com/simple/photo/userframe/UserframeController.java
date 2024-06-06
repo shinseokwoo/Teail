@@ -17,26 +17,39 @@ public class UserframeController {
     private UserframeService userframeService;
 
     //사용자 개인 프레임 확인(조회 : user_num, user_id) 포스트맨 http://localhost:8000/userframe/1/사용자1
-    @GetMapping("/{userNum}/{userId}")
-    public List<Userframe> listuserframe(@PathVariable("userNum") int userNum, @PathVariable("userId") String userId) {
-        List<Userframe> listuserframe = userframeService.listuserframe(userNum, userId);
-        return listuserframe;
-    }
-
-    //사용자 개인 프레임 확인(조회 : user_num, user_id) 포스트맨 key value
-//    @GetMapping("/listuserframe")
-//    public List<Userframe> listuserframe(@RequestParam("userNum") int userNum, @RequestParam("userId") String userId) {
+//    @GetMapping("/{userNum}/{userId}")
+//    public List<Userframe> listuserframe(@PathVariable("userNum") int userNum, @PathVariable("userId") String userId) {
 //        List<Userframe> listuserframe = userframeService.listuserframe(userNum, userId);
 //        return listuserframe;
 //    }
 
+    //사용자 개인 프레임 확인(조회 : user_num, user_id) 포스트맨 key value
+    @GetMapping("/listuserframe")
+    public List<Userframe> listuserframe(@RequestParam("userNum") int userNum, @RequestParam("userId") String userId) {
+        List<Userframe> listuserframe = userframeService.listuserframe(userNum, userId);
+        return listuserframe;
+    }
+
 
     //사용자 개인 프레임 등록 (user_num, user_id)
-    @PostMapping()
+    @PostMapping("/createuserframe")
     public String createuserframe(UserframeFrom userframefrom){
-        userframeService.createuserframe(userframefrom);
-        return"";
+        String result = userframeService.createuserframe(userframefrom);
+        return result;
     }
+    //사용자 개인 프레임 등록
+//    @PostMapping("/createuserframe")
+//    public void createuserframe(@RequestParam("userNum") int userNum, @RequestParam("userId") String userid,
+//                                  @RequestParam("frameName") String framename, @RequestParam("frameWidth") int framewidth,
+//                                  @RequestParam("frameHeight") int frameheight){
+//        UserframeFrom userframefrom = new UserframeFrom();
+//        userframefrom.setUserNum(userNum);
+//        userframefrom.setUserId(userid);
+//        userframefrom.setFrameName(framename);
+//        userframefrom.setFrameWidth(framewidth);
+//        userframefrom.setFrameHeight(frameheight);
+//        userframeService.createuserframe(userframefrom);
+//    }
 
     //사용자 개인 프레임 업데이트 (user_num, user_id, frame_name) 업데이트가 필요한가???
     @PutMapping()
@@ -46,9 +59,10 @@ public class UserframeController {
     }
 
     //사용자 개인 프레임 삭제 (user_num, user_id, frame_name)
-    @DeleteMapping()
-    public String deleteuserframe(){
-        userframeService.deleteuserframe();
+    @DeleteMapping("/deleteuserframe")
+    public String deleteuserframe(@RequestParam("userNum") int userNum, @RequestParam("userId") String userId,
+                                  @RequestParam("frameName") String frameName){
+        userframeService.deleteuserframe(userNum,userId,frameName);
         return "";
     }
 

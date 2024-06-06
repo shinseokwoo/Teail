@@ -1,5 +1,6 @@
 package com.simple.photo.userframe;
 
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,4 +11,7 @@ import java.util.List;
 public interface UserframeRepository extends JpaRepository<Userframe, Long> {
 
     List<Userframe> findByUserNumAndUserId(int userNum, String userId);
+
+    @Transactional
+    void deleteByUserNumAndUserIdAndFrameName(int userNum, String userId, String frameName);
 }

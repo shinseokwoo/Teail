@@ -11,11 +11,17 @@ import jakarta.persistence.*;
 * 사용 용도 : frameName
 * Entity
 * */
+@SequenceGenerator(
+        name = "SEQ_frameId",
+        sequenceName = "frame_SEQ",
+        allocationSize = 1
+)
 @Entity
 public class Userframe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_frameId")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "frame_id")
     private Long frameId; //기본키
 
